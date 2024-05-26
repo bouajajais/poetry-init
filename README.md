@@ -11,7 +11,7 @@ You may run it directly from Docker Hub or by cloning this repository and buildi
 To use the `poetry-init` image from Docker Hub, run the following command :
 
 ```bash
-docker run --rm -v /path/to/project:/project ismailbouajaja/poetry-init
+docker run --rm -u $(id -u):$(id -g) -v /path/to/project:/project ismailbouajaja/poetry-init
 ```
 
 This is equivalent to `poetry init --no-interaction`.
@@ -19,7 +19,7 @@ This is equivalent to `poetry init --no-interaction`.
 OR run it interactively with the following command :
 
 ```bash
-docker run --rm -it -v /path/to/project:/project ismailbouajaja/poetry-init it
+docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/project ismailbouajaja/poetry-init it
 ```
 
 This is equivalent to `poetry init`.
@@ -53,7 +53,7 @@ To build the image yourself and run it from this repository, follow these steps 
     This will initialize a new Python project at the specified path.
 
     ```bash
-    docker run --rm -v /path/to/project:/project poetry-init
+    docker run --rm -u $(id -u):$(id -g) -v /path/to/project:/project poetry-init
     ```
 
     This is equivalent to `poetry init --no-interaction`.
@@ -61,7 +61,7 @@ To build the image yourself and run it from this repository, follow these steps 
     OR run it interactively with
 
     ```bash
-    docker run --rm -it -v /path/to/project:/project poetry-init it
+    docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/project poetry-init it
     ```
 
     This is equivalent to `poetry init`.
