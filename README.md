@@ -8,6 +8,16 @@ Tags reflect the image of python used.
 
 Available tags of `ismailbouajaja/poetry-init` range from `3.8` to `3.12` and from `3.8-slim` to `3.12-slim`.
 
+Currently, `latest` corresponds to `PYTHON_TAG` = `3.12`.
+
+Here are the TAGS currently available :
+```Python
+PYTHON_VERSIONS = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+PYTHON_TYPES = ["", "-slim"]
+```
+
+Other tags will be added later.
+
 ## Usage
 
 You may run it directly from Docker Hub or by cloning the github repository and building the image locally before running it.
