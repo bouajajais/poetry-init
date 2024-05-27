@@ -50,7 +50,7 @@ To clone the github repository, build the image yourself and run it, follow thes
     ```
 
     The `docker build` command accepts the following arguments:
-    - `ARG PYTHON_VERSION=3.12-slim`: The Python version image.
+    - `ARG PYTHON_TAG=3.12-slim`: The Python base image tag.
     - `ARG POETRY_VERSION=1.8.*`: The Poetry version to install.
     - `ARG PYTHONDONTWRITEBYTECODE=1`: Other argument.
     - `ARG PYTHONUNBUFFERED=1`: Other argument.

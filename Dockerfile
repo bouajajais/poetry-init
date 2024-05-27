@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
 # Set the Python version to install
-ARG PYTHON_VERSION=3.12-slim
+ARG PYTHON_TAG=3.12-slim
 
 # Use an official Python image
-FROM python:${PYTHON_VERSION}
+FROM python:${PYTHON_TAG}
 
 # Set the Poetry version to install
 ARG POETRY_VERSION=1.8.*
