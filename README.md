@@ -2,9 +2,15 @@
 
 A docker image for initializing a python project using `poetry init`.
 
+## Available tags
+
+Tags reflect the image of python used.
+
+Available tags of `ismailbouajaja/poetry-init` range from `3.8` to `3.12` and from `3.8-slim` to `3.12-slim`.
+
 ## Usage
 
-You may run it directly from Docker Hub or by cloning this repository and building the image locally before running it.
+You may run it directly from Docker Hub or by cloning the github repository and building the image locally before running it.
 
 ### Using Docker Hub image
 
@@ -26,7 +32,7 @@ This is equivalent to `poetry init`.
 
 ### Clone repository
 
-To build the image yourself and run it from this repository, follow these steps :
+To clone the github repository, build the image yourself and run it, follow these steps :
 
 1. Clone the repository:
     ```bash
