@@ -72,11 +72,6 @@ To clone the github repository, build the image yourself and run it, follow thes
 
     This is equivalent to `poetry init`.
 
-    The `docker run` command accepts the following environment variables:
-    - `ENV POETRY_VERSION`: The Poetry version to install.
-    - `ENV PYTHONDONTWRITEBYTECODE`: Other argument.
-    - `ENV PYTHONUNBUFFERED`: Other argument.
-
 ## Contributing
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
