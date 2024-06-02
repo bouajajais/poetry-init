@@ -3,28 +3,14 @@
 # Set the Python version to install
 ARG PYTHON_TAG=3.12-slim
 
-# Use an official Python image
-FROM python:${PYTHON_TAG}
-
 # Set the Poetry version to install
-ARG POETRY_VERSION=1.8.*
-ARG PYTHONDONTWRITEBYTECODE=1
-ARG PYTHONUNBUFFERED=1
+ARG POETRY_VERSION=1.8
 
-# Set environment variables for Python
-ENV POETRY_VERSION=${POETRY_VERSION} \
-    PYTHONDONTWRITEBYTECODE=${PYTHONDONTWRITEBYTECODE} \
-    PYTHONUNBUFFERED=${PYTHONUNBUFFERED}
+# Use an official Python image
+FROM ismailbouajaja/poetry:${POETRY_VERSION}-python${PYTHON_TAG}
 
 # Create a directory for the application
 WORKDIR /target
-
-# Upgrade pip to the latest version
-RUN pip install --upgrade pip
-
-# Install and configure poetry
-RUN pip install "poetry==${POETRY_VERSION}"
-RUN poetry config virtualenvs.create false
 
 # Create a script to initialize the Poetry project interactively
 ENV PATH="${PATH}:/usr/local/bin"

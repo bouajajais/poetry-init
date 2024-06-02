@@ -4,14 +4,15 @@ A docker image for initializing a python project using `poetry init`.
 
 ## Available tags
 
-Tags reflect the image of python used.
+Tags reflect the image of python used and the version of poetry installed on top.
 
-Available tags of `ismailbouajaja/poetry-init` range from `3.8` to `3.12` and from `3.8-slim` to `3.12-slim`.
+Tags follow this format : `${POETRY_VERSION}-python${PYTHON_TAG}`.
 
-Currently, `latest` corresponds to `PYTHON_TAG` = `3.12`.
+Currently, `latest` corresponds to `1.8-python3.12-slim`.
 
 Here are the TAGS currently available :
 ```Python
+POETRY_VERSIONS = ["1.6", "1.7", "1.8"]
 PYTHON_VERSIONS = ["3.8", "3.9", "3.10", "3.11", "3.12"]
 PYTHON_TYPES = ["", "-slim"]
 ```
@@ -40,9 +41,9 @@ docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/target ismailbouaj
 
 This is equivalent to `poetry init`.
 
-### Clone repository
+## Clone repository
 
-To clone the github repository, build the image yourself and run it, follow these steps :
+To clone the github repository containing the Dockerfile used, follow these steps :
 
 1. Clone the repository:
     ```bash
@@ -61,7 +62,7 @@ To clone the github repository, build the image yourself and run it, follow thes
 
     The `docker build` command accepts the following arguments:
     - `ARG PYTHON_TAG=3.12-slim`: The Python base image tag.
-    - `ARG POETRY_VERSION=1.8.*`: The Poetry version to install.
+    - `ARG POETRY_VERSION=1.8`: The Poetry version to install.
     - `ARG PYTHONDONTWRITEBYTECODE=1`: Other argument.
     - `ARG PYTHONUNBUFFERED=1`: Other argument.
 

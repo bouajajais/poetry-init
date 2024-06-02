@@ -4,6 +4,7 @@ from itertools import product
 
 REPOSITORY = "ismailbouajaja"
 IMAGE_NAME = "poetry-init"
+POETRY_VERSIONS = ["1.6", "1.7", "1.8"]
 PYTHON_VERSIONS = ["3.8", "3.9", "3.10", "3.11", "3.12"]
 PYTHON_TYPES = ["", "-slim"]
 
@@ -31,12 +32,13 @@ def build_and_push_image(image_name: str, tag: str, repository: str, **args: dic
 def main():
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
-        for python_version, python_type in product(PYTHON_VERSIONS, PYTHON_TYPES):
+        for poetry_version, python_version, python_type in product(POETRY_VERSIONS, PYTHON_VERSIONS, PYTHON_TYPES):
             python_tag = f"{python_version}{python_type}"
             args = {
+                "POETRY_VERSION": poetry_version,
                 "PYTHON_TAG": python_tag,
             }
-            tag = python_tag
+            tag = f"{poetry_version}-python{python_tag}"
             future = executor.submit(build_and_push_image, IMAGE_NAME, tag, REPOSITORY, **args)
             futures.append(future)
 
