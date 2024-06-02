@@ -17,7 +17,7 @@ ENV POETRY_VERSION=${POETRY_VERSION} \
     PYTHONUNBUFFERED=${PYTHONUNBUFFERED}
 
 # Create a directory for the application
-WORKDIR /project
+WORKDIR /target
 
 # Upgrade pip to the latest version
 RUN pip install --upgrade pip
