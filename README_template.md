@@ -1,43 +1,43 @@
-# poetry-init
+# {IMAGE_NAME}
 
-This Docker image is built on top of the `ismailbouajaja/poetry` image.
+This Docker image is built on top of the `{BASE_IMAGE}` image.
 
 It installs the following element(s) on top:
 
-
+{INSTALLED_FEATURES}
 
 ## Tag Format
 
-Tags follow this format : `{POETRY_VERSION}-python{PYTHON_TAG}`.
+Tags follow this format : `{TAG_FORMAT}`.
 
 ## Dockerhub
 
 These images can be found in Dockerhub through the following link:
 
-[https://hub.docker.com/repository/docker/ismailbouajaja/poetry-init/general](https://hub.docker.com/repository/docker/ismailbouajaja/poetry-init/general)
+[https://hub.docker.com/repository/docker/{DOCKERHUB_USERNAME}/{IMAGE_NAME}/general](https://hub.docker.com/repository/docker/{DOCKERHUB_USERNAME}/{IMAGE_NAME}/general)
 
 ## Clone repository
 
 To clone the github repository containing the Dockerfile used, follow these steps :
 
-1. Clone the repository [https://github.com/bouajajais/poetry-init.git](https://github.com/bouajajais/poetry-init.git):
+1. Clone the repository [https://github.com/{GITHUB_USERNAME}/{IMAGE_NAME}.git](https://github.com/{GITHUB_USERNAME}/{IMAGE_NAME}.git):
     ```bash
-    git clone https://github.com/bouajajais/poetry-init.git
+    git clone https://github.com/{GITHUB_USERNAME}/{IMAGE_NAME}.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd poetry-init
+    cd {IMAGE_NAME}
     ```
 
 2. Build the Docker image using the provided Dockerfile:
     ```bash
-    docker build -t poetry-init .
+    docker build -t {IMAGE_NAME} .
     ```
 
     The `docker build` command accepts the following arguments:
-    - `ARG PYTHON_TAG=3.12-slim`: The Python base image tag.
-    - `ARG POETRY_VERSION=1.8.*`: The Poetry version to install.
+    - `ARG PYTHON_TAG={LATEST_PYTHON_TAG}`: The Python base image tag.
+    - `ARG POETRY_VERSION={LATEST_POETRY_VERSION}.*`: The Poetry version to install.
     - `ARG PYTHONDONTWRITEBYTECODE=1`: Other argument.
     - `ARG PYTHONUNBUFFERED=1`: Other argument.
 
@@ -48,7 +48,7 @@ Run the Docker container, passing the desired volume path as an argument:
 This will initialize a new `poetry` project at the specified path.
 
 ```bash
-docker run --rm -u $(id -u):$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init
+docker run --rm -u $(id -u):$(id -g) -v /path/to/project:/target {DOCKERHUB_USERNAME}/{IMAGE_NAME}
 ```
 
 This is equivalent to `poetry init --no-interaction`.
@@ -56,7 +56,7 @@ This is equivalent to `poetry init --no-interaction`.
 OR run it interactively with
 
 ```bash
-docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init it
+docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/target {DOCKERHUB_USERNAME}/{IMAGE_NAME} it
 ```
 
 This is equivalent to `poetry init`.
