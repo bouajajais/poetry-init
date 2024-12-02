@@ -8,7 +8,7 @@ It installs the following element(s) on top:
 
 ## Tag Format
 
-Tags follow this format : `{POETRY_VERSION}-python{PYTHON_TAG}`.
+Tags follow this format : `poetry__{POETRY_VERSION}--python__{PYTHON_TAG}`.
 
 ## Dockerhub
 
@@ -36,11 +36,9 @@ To clone the github repository containing the Dockerfile used, follow these step
     ```
 
     The `docker build` command accepts the following arguments:
-    - `ARG PYTHON_TAG=3.12-slim`: The Python base image tag.
     - `ARG POETRY_VERSION=1.8.*`: The Poetry version to install.
-    - `ARG PYTHONDONTWRITEBYTECODE=1`: Other argument.
-    - `ARG PYTHONUNBUFFERED=1`: Other argument.
-
+    - `ARG PYTHON_TAG=3.12-slim`: The Python base image tag.
+    
 ## Usage
 
 Run the Docker container, passing the desired volume path as an argument:
@@ -48,7 +46,7 @@ Run the Docker container, passing the desired volume path as an argument:
 This will initialize a new `poetry` project at the specified path.
 
 ```bash
-docker run --rm -u $(id -u):$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init
+docker run --rm -e USER_UID=$(id -u) -e USER_GID=$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init
 ```
 
 This is equivalent to `poetry init --no-interaction`.
@@ -56,7 +54,7 @@ This is equivalent to `poetry init --no-interaction`.
 OR run it interactively with
 
 ```bash
-docker run --rm -it -u $(id -u):$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init it
+docker run --rm -it -e USER_UID=$(id -u) -e USER_GID=$(id -g) -v /path/to/project:/target ismailbouajaja/poetry-init it
 ```
 
 This is equivalent to `poetry init`.

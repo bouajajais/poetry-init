@@ -13,7 +13,7 @@ IMAGE_NAME = "poetry-init"
 DOCKERHUB_USERNAME = "ismailbouajaja"
 GITHUB_USERNAME = "bouajajais"
 
-TAG_FORMAT = "{POETRY_VERSION}-python{PYTHON_TAG}"
+TAG_FORMAT = "poetry__{POETRY_VERSION}--python__{PYTHON_TAG}"
 
 POETRY_VERSIONS = ["1.8"]
 PYTHON_VERSIONS = ["3.10", "3.11", "3.12"]
@@ -169,7 +169,7 @@ def publish_images(
             python_type
         )
         args = {
-            "POETRY_VERSION": f"{poetry_version}.*",
+            "POETRY_VERSION": poetry_version,
             "PYTHON_TAG": python_tag
         }
         return build_image(
@@ -197,10 +197,6 @@ def publish_images(
             python_version,
             python_type
         )
-        args = {
-            "POETRY_VERSION": f"{poetry_version}.*",
-            "PYTHON_TAG": python_tag
-        }
         return push_image(
             image_name,
             get_tag(
