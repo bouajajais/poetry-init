@@ -12,12 +12,11 @@ FROM ismailbouajaja/poetry:poetry__${POETRY_VERSION}--python__${PYTHON_TAG}
 # Create a directory for the application
 WORKDIR /target
 
-# Create a script to initialize the Poetry project interactively
-ENV PATH="${PATH}:/usr/local/bin"
-RUN echo "poetry init" > /usr/local/bin/it && chmod +x /usr/local/bin/it
+# Copy main.py to the container
+COPY main.py /usr/local/bin/main.py
 
-# Set the entrypoint to run the script
-ENTRYPOINT ["/usr/local/bin/base-entrypoint.sh", "bash", "-c"]
+# # Set the entrypoint to run the script
+# ENTRYPOINT ["/usr/local/bin/base-entrypoint.sh", "bash", "-c"]
 
 # Initialize the Poetry project
-CMD ["poetry init --no-interaction"]
+CMD [ "python /usr/local/bin/main.py" ]

@@ -1,0 +1,1 @@
+THIS REPO IS DEPRECATED. REPLACED BY tool ismailbouajaja/poetry-init in dockerfiles.
